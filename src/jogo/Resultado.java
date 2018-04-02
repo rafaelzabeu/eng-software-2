@@ -1,3 +1,5 @@
+package jogo;
+
 public class Resultado implements Comparable<Resultado> {
 
 	private Participante participante;
