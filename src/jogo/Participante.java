@@ -1,3 +1,4 @@
+package jogo;
 public class Participante {
 
 	private int id;
