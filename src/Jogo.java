@@ -14,12 +14,21 @@ public class Jogo {
 	}
 	
 	public void anota(Resultado resultado) {
-		if(resultados.isEmpty() || 
-                !resultados.get(ultimoResultadoVisto()).getParticipante().equals(resultado.getParticipante())) {
+		if(resultados.isEmpty() || !temParticipante(resultado.getParticipante())) {
             resultados.add(resultado);
         }
-		
-		
+	}
+	
+	public boolean temParticipante(Participante p)
+	{
+		for(Resultado r : resultados)
+		{
+			if(r.getParticipante().equals(p))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private int ultimoResultadoVisto() {
@@ -42,7 +51,7 @@ public class Jogo {
 	public void encerrar() throws Exception
 	{
 		if(getResultados().size() < 2)
-			throw new Exception();
+			throw new Exception("Jogo nao pode ter menos de 2 jogadores!");
 	}
 	
 }
