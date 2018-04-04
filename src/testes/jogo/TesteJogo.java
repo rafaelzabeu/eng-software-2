@@ -22,7 +22,7 @@ class TesteJogo {
 	
 	//Rafael Zabeu
 	@Test
-	void naoPodeTerDoisResultadosDoMesmoJogador()
+	void naoPodeTerDoisResultadosDoMesmoJogador() throws Exception
 	{
 		jogo.anota(new Resultado(part1, 10));
 		jogo.anota(new Resultado(part1, 20));
@@ -32,13 +32,12 @@ class TesteJogo {
 	
 	//Rafael Sançon
 	@Test
-	void quandoUmJogoForEncerradoComMenosDeDoisResultadosEntaoUmaExcecaoSeraDisparada() {
+	void naoPodeEncerrarOJogoComApenasUmJogador() throws Exception {
 		jogo.anota(new Resultado(part1, 20.0));
 		assertThrows(Exception.class,
 				()->{
 					jogo.encerrar(); 
 				});
 	}
-
 }
 

@@ -5,9 +5,12 @@ public class Resultado implements Comparable<Resultado> {
 	private Participante participante;
 	private double metrica;
 	
-	public Resultado(Participante participante, double metrica) {
+	public Resultado(Participante participante, double metrica) throws Exception {
 		this.participante = participante;
-		this.metrica = metrica;
+		if(metrica >= 0)
+			this.metrica = metrica;
+		else
+			throw new Exception("A métrica deve ser positiva");
 	}
 
 	public Participante getParticipante() {
