@@ -3,18 +3,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Jogo {
+public class Jogo implements IJogo {
 
 	private String descricao;
-	private List<Resultado> resultados;
+	private List<IResultado> resultados;
 	private boolean fechado;
 	
 	public Jogo(String descricao) {
 		this.descricao = descricao;
-		this.resultados = new ArrayList<Resultado>();
+		this.resultados = new ArrayList<IResultado>();
 	}
 	
-	public void anota(Resultado resultado) {
+	public void anota(IResultado resultado) {
 		if(resultados.isEmpty() || !temParticipante(resultado.getParticipante())) {
             resultados.add(resultado);
         }
@@ -22,7 +22,7 @@ public class Jogo {
 	
 	public boolean temParticipante(Participante p)
 	{
-		for(Resultado r : resultados)
+		for(IResultado r : resultados)
 		{
 			if(r.getParticipante().equals(p))
 			{
@@ -40,11 +40,11 @@ public class Jogo {
 		return descricao;
 	}
 
-	public List<Resultado> getResultados() {
+	public List<IResultado> getResultados() {
 		return Collections.unmodifiableList(resultados);
 	}
 
-	public Resultado getUltimoResultadoVisto()
+	public IResultado getUltimoResultadoVisto()
 	{
 		return resultados.get(ultimoResultadoVisto());
 	}

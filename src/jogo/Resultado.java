@@ -1,6 +1,6 @@
 package jogo;
 
-public class Resultado implements Comparable<Resultado> {
+public class Resultado implements IResultado, Comparable<Resultado> {
 
 	private Participante participante;
 	private double metrica;
