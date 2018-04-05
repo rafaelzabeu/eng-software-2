@@ -18,7 +18,7 @@ public class Jogo implements IJogo {
 		
 		if(fechado)
 		{
-			throw new Exception("Um jogo fechado não pode ter novos participantes.");
+			throw new Exception("Um jogo fechado nï¿½o pode ter novos participantes.");
 		}
 		
 		if(resultados.isEmpty() || !temParticipante(resultado.getParticipante())) {
@@ -59,6 +59,7 @@ public class Jogo implements IJogo {
 	{
 		if(getResultados().size() < 2)
 			throw new Exception("Jogo nao pode ter menos de 2 jogadores!");
+
 		fechado = true;
 	}
 
